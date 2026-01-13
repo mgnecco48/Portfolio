@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio landing page showcasing GitHub projects, skills, and contact info." />
+  <title>Martín — Projects</title>
+
+  <style>
+    :root{
+      --bg: #0b0e14;
+      --panel: #0f1522;
+      --panel2: #0c111b;
+      --text: #e7ecf5;
+      --muted: #a8b3cf;
+      --line: #24304a;
+      --accent: #7aa2ff;
+      --accent2: #7cffc1;
+      --warn: #ffd37a;
+      --shadow: 0 12px 40px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius2: 14px;
+      --max: 1060px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      font-family: var(--sans);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(122,162,255,.20), transparent 60%),
+        radial-gradient(700px 420px at 85% 20%, rgba(124,255,193,.15), transparent 55%),
+        radial-gradient(800px 540px at 50% 90%, rgba(255,211,122,.10), transparent 65%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    .container{ max-width: var(--max); margin: 0 auto; padding: 28px 18px 60px; }
+
+    /* Top bar */
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(36,48,74,.7);
+      background: rgba(15,21,34,.7);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap: 10px;
+      min-width: 220px;
+    }
+    .avatar{
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(122,162,255,.9), rgba(124,255,193,.9));
+      display:grid; place-items:center;
+      font-weight: 800;
+      color: #0b0e14;
+      box-shadow: 0 10px 24px rgba(0,0,0,.35);
+    }
+    .brand h1{
+      font-size: 14px; margin: 0;
+      letter-spacing: .2px;
+    }
+    .brand p{
+      margin: 0; font-size: 12px; color: var(--muted);
+    }
+
+    .nav{
+      display:flex; flex-wrap: wrap; justify-content: center;
+      gap: 10px;
+    }
+    .chip{
+      border: 1px solid rgba(36,48,74,.7);
+      background: rgba(12,17,27,.7);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+      transition: transform .12s ease, border-color .12s ease;
+      white-space: nowrap;
+    }
+    .chip:hover{ transform: translateY(-1px); border-color: rgba(122,162,255,.7); text-decoration: none; }
+    .cta{
+      display:flex; gap: 10px; align-items:center; justify-content:flex-end;
+      min-width: 240px;
+    }
+    .btn{
+      border: 1px solid rgba(36,48,74,.85);
+      background: rgba(12,17,27,.9);
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      display:inline-flex; gap: 8px; align-items:center;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(122,162,255,.8); text-decoration:none; }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(122,162,255,.95), rgba(124,255,193,.70));
+      color: #07101b;
+      border-color: transparent;
+      font-weight: 700;
+    }
+    .btn.primary:hover{ filter: brightness(1.05); }
+
+    /* Hero */
+    .hero{
+      margin-top: 22px;
+      padding: 26px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(36,48,74,.7);
+      background: rgba(15,21,34,.6);
+      box-shadow: var(--shadow);
+      display:grid;
+      grid-template-columns: 1.4fr .6fr;
+      gap: 18px;
+    }
+    .hero h2{ margin: 0 0 10px; font-size: 28px; line-height: 1.15; letter-spacing: .2px; }
+    .hero p{ margin: 0 0 14px; color: var(--muted); font-size: 14px; max-width: 62ch; }
+    .hero .meta{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 10px;
+    }
+    .pill{
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid rgba(36,48,74,.75);
+      background: rgba(12,17,27,.65);
+      color: var(--muted);
+    }
+    .statbox{
+      border-radius: var(--radius);
+      border: 1px solid rgba(36,48,74,.7);
+      background: rgba(12,17,27,.55);
+      padding: 16px;
+      display:grid;
+      gap: 12px;
+      align-content: start;
+    }
+    .stat{
+      display:flex; justify-content:space-between; gap: 14px;
+      padding: 10px 12px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(36,48,74,.6);
+      background: rgba(15,21,34,.45);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .stat strong{ color: var(--text); font-weight: 700; }
+
+    /* Sections */
+    section{ margin-top: 26px; }
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .section-head h3{
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+    .section-head p{
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    /* Filters */
+    .filters{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(36,48,74,.7);
+      background: rgba(12,17,27,.55);
+    }
+    .input{
+      flex: 1 1 240px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(36,48,74,.7);
+      background: rgba(15,21,34,.55);
+      color: var(--text);
+    }
+    .input input{
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 13px;
+    }
+    .select{
+      flex: 0 0 200px;
+      display:flex; align-items:center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(36,48,74,.7);
+      background: rgba(15,21,34,.55);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .select select{
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 13px;
+      appearance: none;
+    }
+
+    /* Project grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .card{
+      grid-column: span 6;
+      border-radius: var(--radius);
+      border: 1px solid rgba(36,48,74,.7);
+      background: rgba(15,21,34,.6);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      display:grid;
+      gap: 12px;
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    .card:hover{ transform: translateY(-2px); border-color: rgba(122,162,255,.7); }
+    .card .top{
+      display:flex; align-items:flex-start; justify-content:space-between; gap: 12px;
+    }
+    .title{
+      display:grid; gap: 4px;
+    }
+    .title h4{ margin: 0; font-size: 15px; letter-spacing: .2px; }
+    .title .desc{ margin: 0; font-size: 13px; color: var(--muted); }
+    .badge{
+      font-family: var(--mono);
+      font-size: 11px;
+      color: rgba(231,236,245,.9);
+      background: rgba(122,162,255,.14);
+      border: 1px solid rgba(122,162,255,.35);
+      padding: 6px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .tags{
+      display:flex; flex-wrap: wrap; gap: 8px;
+    }
+    .tag{
+      font-size: 11px;
+      color: var(--muted);
+      border: 1px solid rgba(36,48,74,.7);
+      background: rgba(12,17,27,.55);
+      padding: 6px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .actions{
+      display:flex; gap: 10px; flex-wrap: wrap;
+    }
+    .link{
+      font-size: 12px;
+      color: var(--text);
+      border: 1px solid rgba(36,48,74,.85);
+      background: rgba(12,17,27,.75);
+      padding: 8px 10px;
+      border-radius: 999px;
+      display:inline-flex; align-items:center; gap: 8px;
+    }
+    .link:hover{ border-color: rgba(124,255,193,.6); text-decoration:none; transform: translateY(-1px); }
+    .kpi{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .kpi span{
+      border: 1px solid rgba(36,48,74,.6);
+      background: rgba(12,17,27,.45);
+      padding: 6px 8px;
+      border-radius: 999px;
+    }
+
+    /* About / skills */
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .panel{
+      border-radius: var(--radius);
+      border: 1px solid rgba(36,48,74,.7);
+      background: rgba(15,21,34,.6);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .panel p{ margin: 0; color: var(--muted); font-size: 13px; }
+    .skills{
+      display:flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;
+    }
+    .skill{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(36,48,74,.7);
+      background: rgba(12,17,27,.55);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer{
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align:center;
+      opacity: .9;
+    }
+
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      .card{ grid-column: span 12; }
+      .two{ grid-template-columns: 1fr; }
+      .brand{ min-width: auto; }
+      .cta{ min-width: auto; }
+    }
+
+    /* Small helper */
+    .mono{ font-family: var(--mono); }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">MG</div>
+        <div>
+          <h1>Martín Gnecco</h1>
+          <p>Data Science student • Python • Projects</p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Page navigation">
+        <a class="chip" href="#projects">Projects</a>
+        <a class="chip" href="#skills">Skills</a>
+        <a class="chip" href="#about">About</a>
+        <a class="chip" href="#contact">Contact</a>
+      </nav>
+
+      <div class="cta">
+        <!-- Replace with your real links -->
+        <a class="btn" href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn primary" href="#contact">Hire / Contact</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div>
+        <h2>Practical projects in Python & Data Science, built to learn and ship.</h2>
+        <p>
+          I’m transitioning into Data Science and documenting my learning through projects:
+          data analysis, small apps, automation, and coursework-driven builds. Below are my
+          best repos—each with a clear goal, approach, and next steps.
+        </p>
+
+        <div class="meta" aria-label="Highlights">
+          <span class="pill">📍 Oslo, Norway</span>
+          <span class="pill">🐍 Python</span>
+          <span class="pill">📊 Data Analysis</span>
+          <span class="pill">🗄️ SQL</span>
+          <span class="pill">⚙️ CLI Tools</span>
+        </div>
+      </div>
+
+      <aside class="statbox" aria-label="Quick stats">
+        <!-- You can manually edit these -->
+        <div class="stat"><span>Focus</span><strong>Learning-by-building</strong></div>
+        <div class="stat"><span>Strength</span><strong>Structure & clarity</strong></div>
+        <div class="stat"><span>Looking for</span><strong>Internships / Junior roles</strong></div>
+        <div class="stat"><span>Best contact</span><strong class="mono">email@domain.com</strong></div>
+      </aside>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-head">
+        <div>
+          <h3>Featured projects</h3>
+          <p>Search + filter to quickly find relevant work. Replace the placeholder repos with your real ones.</p>
+        </div>
+      </div>
+
+      <div class="filters" role="region" aria-label="Project filters">
+        <div class="input" aria-label="Search projects">
+          <span class="mono">/</span>
+          <input id="search" type="text" placeholder="Search by title, description, or tag (e.g., pandas, sql, cli)..." />
+        </div>
+
+        <div class="select" aria-label="Filter by category">
+          <select id="category">
+            <option value="all">All categories</option>
+            <option value="data">Data / Analysis</option>
+            <option value="ml">ML / Modeling</option>
+            <option value="cli">CLI / Automation</option>
+            <option value="db">Databases / SQL</option>
+            <option value="course">Coursework</option>
+          </select>
+        </div>
+
+        <button class="btn" id="clear">Clear</button>
+      </div>
+
+      <div class="grid" id="projectGrid" style="margin-top:14px;">
+        <!-- =========================
+             PROJECTS (EDIT THESE)
+             - data-title, data-category, data-tags are used by filtering JS
+             ========================= -->
+
+        <article class="card project"
+          data-title="Oslo Restaurants CLI"
+          data-category="cli"
+          data-tags="python,cli,ux,terminal,api"
+        >
+          <div class="top">
+            <div class="title">
+              <h4>Oslo Restaurants CLI</h4>
+              <p class="desc">Interactive terminal app to explore restaurant data with a polished UI.</p>
+            </div>
+            <span class="badge">Python • CLI</span>
+          </div>
+
+          <div class="tags" aria-label="Tags">
+            <span class="tag">Python</span><span class="tag">CLI</span><span class="tag">Terminal UI</span><span class="tag">UX</span>
+          </div>
+
+          <div class="kpi" aria-label="Highlights">
+            <span>✅ Clear structure</span>
+            <span>✅ Readable code</span>
+            <span>➡️ Next: add caching</span>
+          </div>
+
+          <div class="actions">
+            <a class="link" href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank" rel="noreferrer">Repo</a>
+            <a class="link" href="https://YOUR_USERNAME.github.io/YOUR_REPO" target="_blank" rel="noreferrer">Live</a>
+          </div>
+        </article>
+
+        <article class="card project"
+          data-title="Stats Notebook: Descriptive Measures"
+          data-category="data"
+          data-tags="python,numpy,statistics,data-analysis"
+        >
+          <div class="top">
+            <div class="title">
+              <h4>Statistics: Descriptive Measures (Notebook)</h4>
+              <p class="desc">Manual implementations + numpy equivalents for mean, variance, CV, modes, etc.</p>
+            </div>
+            <span class="badge">Python • NumPy</span>
+          </div>
+
+          <div class="tags">
+            <span class="tag">NumPy</span><span class="tag">Statistics</span><span class="tag">Jupyter</span>
+          </div>
+
+          <div class="kpi">
+            <span>✅ Concepts + code</span>
+            <span>✅ Verified outputs</span>
+            <span>➡️ Next: add tests</span>
+          </div>
+
+          <div class="actions">
+            <a class="link" href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank" rel="noreferrer">Repo</a>
+            <a class="link" href="https://nbviewer.org/" target="_blank" rel="noreferrer">Notebook View</a>
+          </div>
+        </article>
+
+        <article class="card project"
+          data-title="NordicX Database (SQL + ERD)"
+          data-category="db"
+          data-tags="sql,mysql,erd,normalization,docker"
+        >
+          <div class="top">
+            <div class="title">
+              <h4>NordicX Database System</h4>
+              <p class="desc">Relational schema + ERD + sample data: suppliers, products, orders, employees.</p>
+            </div>
+            <span class="badge">SQL • MySQL</span>
+          </div>
+
+          <div class="tags">
+            <span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">ERD</span><span class="tag">Docker</span>
+          </div>
+
+          <div class="kpi">
+            <span>✅ Constraints</span>
+            <span>✅ Sample dataset</span>
+            <span>➡️ Next: add queries</span>
+          </div>
+
+          <div class="actions">
+            <a class="link" href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank" rel="noreferrer">Repo</a>
+          </div>
+        </article>
+
+        <article class="card project"
+          data-title="Text Censoring Tool"
+          data-category="cli"
+          data-tags="python,strings,performance,files"
+        >
+          <div class="top">
+            <div class="title">
+              <h4>Text Censoring Tool</h4>
+              <p class="desc">Reads a file and censors sensitive words (case-insensitive) while preserving punctuation.</p>
+            </div>
+            <span class="badge">Python</span>
+          </div>
+
+          <div class="tags">
+            <span class="tag">File I/O</span><span class="tag">Strings</span><span class="tag">Performance</span>
+          </div>
+
+          <div class="kpi">
+            <span>✅ Robust edge cases</span>
+            <span>➡️ Next: optimize matching</span>
+          </div>
+
+          <div class="actions">
+            <a class="link" href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank" rel="noreferrer">Repo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-head">
+        <div>
+          <h3>Skills snapshot</h3>
+          <p>Keep this short and honest. Recruiters prefer clarity over long lists.</p>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="panel">
+          <p><strong>Core:</strong> Python, NumPy, pandas, data cleaning, basic modeling, visualization, SQL fundamentals.</p>
+          <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">NumPy</span>
+            <span class="skill">pandas</span>
+            <span class="skill">Matplotlib</span>
+            <span class="skill">SQL</span>
+            <span class="skill">Git/GitHub</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <p><strong>Workflow:</strong> reproducible notebooks, readable CLIs, documentation-first repos, incremental improvements.</p>
+          <div class="skills">
+            <span class="skill">Jupyter</span>
+            <span class="skill">Conda</span>
+            <span class="skill">Docker (basic)</span>
+            <span class="skill">Testing (learning)</span>
+            <span class="skill">Linux basics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-head">
+        <div>
+          <h3>About</h3>
+          <p>One paragraph is enough. Make it easy to scan.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <p>
+          I’m transitioning into Data Science and building practical projects to strengthen fundamentals:
+          statistics, data analysis, and software structure. I like projects with clear requirements, measurable outcomes,
+          and documentation that helps others reproduce the work.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head">
+        <div>
+          <h3>Contact</h3>
+          <p>Replace placeholders with your real email + links (LinkedIn is strongly recommended).</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <p>
+          Email: <a class="mono" href="mailto:email@domain.com">email@domain.com</a><br/>
+          GitHub: <a class="mono" href="https://github.com/YOUR_USERNAME" target="_blank" rel="noreferrer">github.com/YOUR_USERNAME</a><br/>
+          LinkedIn: <a class="mono" href="https://www.linkedin.com/in/YOUR_USERNAME/" target="_blank" rel="noreferrer">linkedin.com/in/YOUR_USERNAME</a>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Martín • Built as a single-file page for GitHub Pages.
+    </footer>
+
+  </div>
+
+  <script>
+    // ===== Tiny filtering logic =====
+    const search = document.getElementById("search");
+    const category = document.getElementById("category");
+    const clear = document.getElementById("clear");
+    const projects = Array.from(document.querySelectorAll(".project"));
+
+    function normalize(s){ return (s || "").toLowerCase().trim(); }
+
+    function applyFilters(){
+      const q = normalize(search.value);
+      const c = category.value;
+
+      projects.forEach(card => {
+        const title = normalize(card.dataset.title);
+        const tags = normalize(card.dataset.tags);
+        const cat = card.dataset.category;
+
+        const matchQuery = !q || title.includes(q) || tags.includes(q);
+        const matchCategory = (c === "all") || (cat === c);
+
+        card.style.display = (matchQuery && matchCategory) ? "" : "none";
+      });
+    }
+
+    search.addEventListener("input", applyFilters);
+    category.addEventListener("change", applyFilters);
+    clear.addEventListener("click", () => {
+      search.value = "";
+      category.value = "all";
+      applyFilters();
+      search.focus();
+    });
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Initial filter
+    applyFilters();
+  </script>
+</body>
+</html>

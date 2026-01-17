@@ -1,0 +1,3 @@
+I enjoy clear problem definitions, clean and readable code,
+        and understanding the theory behind the tools I use.
+        My projects are built to reinforce fundamentals rather than chase complexity.

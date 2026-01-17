@@ -1,53 +1,217 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Martín — Portfolio</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Portfolio of Martín Gnecco, Data Science student with an international professional background." />
+  <title>Martín Gnecco — Portfolio</title>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
+  <div class="container">
 
-  <header class="topbar">
-    <div class="brand">
-      <div class="avatar">MG</div>
-      <div>
-        <h1>Martín Gnecco</h1>
-        <p>Data Science · Python · Projects</p>
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="avatar">
+          <img src="assets/avatar.png" alt="Martín Gnecco">
+        </div>
+        <div>
+          <h1>Martín Gnecco</h1>
+          <p>Data Science · Python · Applied Projects</p>
+        </div>
       </div>
-    </div>
 
-    <nav class="nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+      <div class="cta">
+        <a class="btn" href="https://github.com/mgnecco48" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
 
-    <div class="cta">
-      <a class="btn"
-         href="https://github.com/mgnecco48"
-         target="_blank"
-         rel="noopener noreferrer">
-        GitHub
-      </a>
-    </div>
-  </header>
+        <a class="btn primary" href="assets/Martin_Gnecco_CV.pdf" download>
+          Download CV
+        </a>
+      </div>
+    </header>
 
-  <main class="container hero">
-    <h2>Learning Data Science by building practical projects</h2>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h2>Data Science student transitioning from an international culinary leadership career.</h2>
 
-    <p>
-      I am transitioning into Data Science and documenting my learning through
-      Python, statistics, SQL, and small applications.
-      This site highlights my most relevant and structured work.
-    </p>
+        <p>
+          I am currently studying Data Science at Kristiania University and building a strong
+          foundation in Python, statistics, and data analysis.
+          My work focuses on structured, hands-on projects that emphasize fundamentals,
+          clarity, and reproducible workflows.
+        </p>
 
-    <div class="hero-actions">
-      <a class="btn primary" href="projects.html">View Projects</a>
-      <a class="btn" href="contact.html">Contact</a>
-    </div>
-  </main>
+        <div class="meta">
+          <span class="pill">📍 Oslo, Norway</span>
+          <span class="pill">🎓 Kristiania University</span>
+          <span class="pill">🐍 Python</span>
+          <span class="pill">📊 Data Analysis</span>
+        </div>
+      </div>
 
+      <aside class="statbox">
+        <div class="stat"><span>Status</span><strong>Data Science student</strong></div>
+        <div class="stat"><span>Institution</span><strong>Kristiania University</strong></div>
+        <div class="stat"><span>Location</span><strong>Oslo, Norway</strong></div>
+        <div class="stat"><span>Background</span><strong>Professional kitchens</strong></div>
+      </aside>
+    </section>
+
+    <!-- PROJECTS -->
+    <section>
+      <div class="section-head">
+        <div>
+          <h3>Projects</h3>
+          <p>Selected work used to reinforce core Data Science and software fundamentals.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="top">
+            <div class="title">
+              <h4>ToDo CLI App</h4>
+              <p class="desc">
+                Command-line application for managing a simple to-do list with persistent storage.
+              </p>
+            </div>
+            <span class="badge">Python • CLI</span>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">CLI</span>
+            <span class="tag">File I/O</span>
+          </div>
+
+          <div class="actions">
+            <a class="link" href="https://github.com/mgnecco48/ToDo-CLI-app" target="_blank">
+              Repo →
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="top">
+            <div class="title">
+              <h4>Cryptool CLI</h4>
+              <p class="desc">
+                Educational CLI tool implementing basic classical encryption algorithms using argparse.
+              </p>
+            </div>
+            <span class="badge">Python • Argparse</span>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">CLI</span>
+            <span class="tag">Argparse</span>
+          </div>
+
+          <div class="actions">
+            <a class="link" href="https://github.com/mgnecco48/cryptool-CLI" target="_blank">
+              Repo →
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="top">
+            <div class="title">
+              <h4>Data Science Notebooks</h4>
+              <p class="desc">
+                Jupyter notebooks based on university coursework, implementing statistics and data analysis concepts.
+              </p>
+            </div>
+            <span class="badge">Python • Jupyter</span>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Statistics</span>
+            <span class="tag">Python</span>
+            <span class="tag">Jupyter</span>
+          </div>
+
+          <div class="actions">
+            <a class="link" href="https://github.com/mgnecco48/Data-Science-Notebooks" target="_blank">
+              Repo →
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section>
+      <div class="section-head">
+        <div>
+          <h3>About</h3>
+          <p>Professional background and current focus.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <p>
+          Before transitioning into Data Science, I spent over a decade working as a chef,
+          including leading kitchens in Michelin-starred restaurants in Mexico, Sweden, and Norway.
+          These environments required discipline, precision, and the ability to perform consistently
+          under pressure while coordinating diverse, international teams.
+        </p>
+
+        <p>
+          That experience strongly shapes how I approach Data Science today.
+          I value clear processes, well-defined inputs and outputs, and work that can be reproduced,
+          reviewed, and improved over time.
+          I am currently focused on developing a solid foundation in Python, statistics, and data analysis,
+          using practical projects to reinforce core concepts and professional workflows.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section>
+      <div class="section-head">
+        <div>
+          <h3>Contact</h3>
+        </div>
+      </div>
+
+      <div class="panel">
+        <p>
+          Email: <a class="mono" href="mailto:mgnecco48@gmail.com">mgnecco48@gmail.com</a><br />
+          GitHub: <a class="mono" href="https://github.com/mgnecco48" target="_blank">github.com/mgnecco48</a><br />
+          LinkedIn:
+          <a class="mono" href="https://www.linkedin.com/in/mart%C3%ADn-gnecco-heredia-b49b35398/" target="_blank">
+            linkedin.com/in/martín-gnecco
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Martín Gnecco
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
+
 </html>

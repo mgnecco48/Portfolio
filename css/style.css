@@ -25,6 +25,7 @@ body {
     background:
         radial-gradient(900px 500px at 15% 10%, rgba(122, 162, 255, .20), transparent 60%),
         radial-gradient(700px 420px at 85% 20%, rgba(124, 255, 193, .15), transparent 55%),
+        radial-gradient(800px 500px at 50% 90%, rgba(124, 255, 193, .14), transparent 65%),
         var(--bg);
     color: var(--text);
     line-height: 1.55;
@@ -167,6 +168,17 @@ section {
     margin: 0;
     font-size: 25px;
     letter-spacing: .2px;
+    position: relative;
+}
+
+.section-head h3::after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 2px;
+    margin-top: 6px;
+    background: var(--accent);
+    opacity: 0.6;
 }
 
 .section-head p {
@@ -233,8 +245,64 @@ section {
     background: rgba(15, 21, 34, .6);
 }
 
+/* Coursework */
+
+.course-group {
+    margin: 12px 0 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+}
+
+.course-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(36, 48, 74, .4);
+}
+
+.course-list li:last-child {
+    border-bottom: none;
+}
+
+.course-note {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* Coursework pills */
+
+a.course-pill,
+a.course-pill:visited {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    background: rgba(122, 162, 255, 0.15);
+    border: 1px solid rgba(122, 162, 255, 0.35);
+    text-decoration: none;
+}
+
+a.course-pill:hover {
+    color: var(--text);
+    background: rgba(122, 162, 255, 0.25);
+    border-color: rgba(122, 162, 255, 0.6);
+}
+
+/* Footer */
+
 footer {
-    margin-top: 28px;
+    margin-top: 32px;
     font-size: 12px;
     color: var(--muted);
     text-align: center;
